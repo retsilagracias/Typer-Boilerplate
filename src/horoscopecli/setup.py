@@ -1,11 +1,11 @@
 from setuptools import setup
 
-setup(name='put_then_name_of_your_package_here',
-      version='0.1',
-      description='write the description here',
-      url='http://github.com/yourgithub/url',
-      author='YOU',
-      author_email='yourmail',
-      license='MIT',
+setup(name='horoscopecli',
+      version='1.0',
+      description='Get your sign horoscrope from an existing api and web scrapping.',
+      url='https://github.com/retsilagracias/horoscope-cli',
+      author='GRACIAS Alister, CHUNG Feng, FRANEL Thomas, GARDEBOIS Jeanne',
+      author_email='alister.gracias@epita.fr, feng.chung@epita.fr, thomas.franel@epita.fr, jeanne.gardebois@epita.fr',
+      license='EPITA',
       packages=['horoscopecli'],
       zip_safe=False)
