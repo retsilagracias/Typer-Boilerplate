@@ -1,3 +1,8 @@
+# Horoscope Cli project
+
+A project done for the python course at Epita / MTI.
+Project made with Typer Boilerplate project as base, realised by CHUNG Feng, FRANEL Thomas, GARDEBOIS Jeanne and GRACIAS Alister. 
+
 # Typer Boilerplate
 
 A boilerplate making use of [typer](https://github.com/tiangolo/typer) + [pytest](https://github.com/pytest-dev/pytest) + docker.
@@ -12,16 +17,23 @@ They don't do much in the present repository, this is a personal habit to have `
 
 # Usage
 
-## Running
+## Build container first
 
 ```bash
-./run.sh
+./install.sh
+```
+
+## Running commands with help
+
+```bash
+./run.sh --help
 ```
 
 Or, as arguments are passed around :
 
 ```bash
-./run.sh hello awesome
+./run.sh gethoroscopefromapi --help
+./run.sh gethoroscopefromscrapper --help
 ```
 
 ## Testing
@@ -40,17 +52,6 @@ Or, as arguments are passed around, you can pass your prefered pytest flags.
 In case you want to enter your container environment :
 
 ```bash
-docker build . -t mycli
-docker run -it --entrypoint bash mycli
+docker build . -t horoscopecli
+docker run -it --entrypoint bash horoscopecli
 ```
-
-## Notes
-
-Dont forget to : 
-- change informations in the `setup.py`
-- replace "mycli" all over the place with the name of your package.
-
-Windows user, everything is inside the shell scripts, copy and paste will work.
-Two notes : 
-- ignore the clear command
-- delete the `$@` symbol
