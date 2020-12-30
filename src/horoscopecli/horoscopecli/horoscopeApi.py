@@ -9,4 +9,4 @@ def getHoroscopeApi(sign: str, flag: str):
         rText = json.loads(r.text)
         return (True, rText["horoscope"])
     except:
-        return (False, "ERROR: Sorry, your request didn't went through, bad network error.")    
+        return (False, "ERROR: Sorry, your request didn't went through, bad network error.")
