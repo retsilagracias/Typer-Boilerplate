@@ -1,7 +1,7 @@
 import typer
 from googletrans import Translator
 from horoscopeApi import getHoroscopeApi
-
+from horoscopeScrapper import getHoroscopeScrapper
 import inputCheck
 
 app = typer.Typer()
@@ -58,7 +58,38 @@ def getHoroscopeFromApi(sign: str = typer.Argument(..., help="The zodiac sign yo
         typer.echo(horoscopeEn[1])
     return 0
 
+@app.command()
+def getHoroscopeFromScrapper(sign: str = typer.Argument(..., help="The zodiac sign you want to get the horoscope of (in french or in english)"),
+                             en: bool = typer.Option(False, help="Result in english (default french)."),
+                             love: bool = typer.Option(False, help="Get love life horoscope."),
+                             work: bool = typer.Option(False, help="Get work life horosocpe."),
+                             finance: bool = typer.Option(False, help="Get finance horoscope."),
+                             self: bool = typer.Option(False, help="Get well being horoscope."),
+                             family: bool = typer.Option(False, help="Get family and friends horoscope.")):
+    """
+    This command let you check your SIGN horoscope with CATEGORY OPTION.
 
+    If no CATEGORY OPTION is specified, it will give you your self horoscope.
+    """
+    validSign = inputCheck.validInputSign(sign)
+    if not validSign[0]:
+        typer.echo(validSign[1])
+        return 1
+    signEn = validSign[1]
+    signFr = validSign[2]
+
+    validCategoryOption = inputCheck.validInputCategoryOption(love, work, finance, self, family)
+    if not validCategoryOption[0]:
+        typer.echo(validCategoryOption[1])
+        return 1
+
+    horoscopeFr = getHoroscopeScrapper(signFr, validCategoryOption[1])
+    if en:
+        gTranslate([horoscopeFr[0],  horoscopeFr[1]], "fr", "en")
+    else:
+        typer.echo(f"\n{horoscopeFr[0]}")
+        typer.echo(horoscopeFr[1])
+    return 0
 
 if __name__ == "__main__":
     app()
