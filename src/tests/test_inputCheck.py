@@ -185,4 +185,60 @@ def test_year_validInputDateOption():
     assert result[0] == True
     assert result[1] == "year"
 
+def test_twoOptions_validInputDateOption():
+    result = validInputDateOption(False, True, True, False)
+    assert result[0] == False
 
+def test_threeOptions_validInputDateOption():
+    result = validInputDateOption(True, True, True, False)
+    assert result[0] == False
+
+def test_fourOptions_validInputDateOption():
+    result = validInputDateOption(True, True, True, True)
+    assert result[0] == False
+
+def test_noOption_validInputCategoryOption():
+    result = validInputCategoryOption(False, False, False, False, False)
+    assert result[0] == True
+    assert result[1] == "self"
+
+def test_love_validInputCategoryOption():
+    result = validInputCategoryOption(True, False, False, False, False)
+    assert result[0] == True
+    assert result[1] == "love"
+
+def test_work_validInputCategoryOption():
+    result = validInputCategoryOption(False, True, False, False, False)
+    assert result[0] == True
+    assert result[1] == "work"
+
+def test_finance_validInputCategoryOption():
+    result = validInputCategoryOption(False, False, True, False, False)
+    assert result[0] == True
+    assert result[1] == "finance"
+
+def test_self_validInputCategoryOption():
+    result = validInputCategoryOption(False, False, False, True, False)
+    assert result[0] == True
+    assert result[1] == "self"
+
+def test_family_validInputCategoryOption():
+    result = validInputCategoryOption(False, False, False, False, True)
+    assert result[0] == True
+    assert result[1] == "family"
+
+def test_twoOptions_validInputCategoryOption():
+    result = validInputCategoryOption(False, True, False, True, False)
+    assert result[0] == False
+
+def test_threeOptions_validInputCategoryOption():
+    result = validInputCategoryOption(True, True, False, True, False)
+    assert result[0] == False
+
+def test_fourOptions_validInputCategoryOption():
+    result = validInputCategoryOption(False, True, True, True, True)
+    assert result[0] == False
+
+def test_fiveOptions_validInputCategoryOption():
+    result = validInputCategoryOption(True, True, True, True, True)
+    assert result[0] == False
