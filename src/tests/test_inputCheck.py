@@ -151,3 +151,38 @@ def test_Pisces_validInputSign():
     assert result[0] == True
     assert result[1] == ("pisces")
     assert result[2] == ("poissons")
+
+def test_InvalidSign_validInputSign():
+    result = validInputSign("InvalidSign")
+    assert result[0] == False
+
+def test_gemeau_validInputSign():
+    result = validInputSign("gemeau")
+    assert result[0] == False
+
+def test_noOption_validInputDateOption():
+    result = validInputDateOption(False, False, False, False)
+    assert result[0] == True
+    assert result[1] == "today"
+
+def test_today_validInputDateOption():
+    result = validInputDateOption(True, False, False, False)
+    assert result[0] == True
+    assert result[1] == "today"
+
+def test_week_validInputDateOption():
+    result = validInputDateOption(False, True, False, False)
+    assert result[0] == True
+    assert result[1] == "week"
+
+def test_month_validInputDateOption():
+    result = validInputDateOption(False, False, True, False)
+    assert result[0] == True
+    assert result[1] == "month"
+
+def test_year_validInputDateOption():
+    result = validInputDateOption(False, False, False, True)
+    assert result[0] == True
+    assert result[1] == "year"
+
+
