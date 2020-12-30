@@ -7,5 +7,5 @@ setup(name='put_then_name_of_your_package_here',
       author='YOU',
       author_email='yourmail',
       license='MIT',
-      packages=['mycli'],
+      packages=['horoscopecli'],
       zip_safe=False)
