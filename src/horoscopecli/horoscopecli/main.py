@@ -7,13 +7,13 @@ import inputCheck
 app = typer.Typer()
 
 def translateDeco(function):
-    def deco(args, **kwargs):
+    def deco(*args, **kwargs):
         typer.echo("\nBefore translation / Avant traduction:\n")
         texts = args[0]
         for text in texts:
             typer.echo(text)
         typer.echo("\n====================\n")
-        translations = function(args, **kwargs)
+        translations = function(*args, **kwargs)
         typer.echo("After translation / Après traduction:\n")
         for translation in translations:
             typer.echo(translation.text)
