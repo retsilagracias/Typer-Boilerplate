@@ -1,3 +1,3 @@
-docker build . -t mycli
+docker build . -t horoscopecli
 clear
-docker run -it --entrypoint sh mycli -c "cd /app && pytest $@"
+docker run -it --entrypoint sh horoscopecli -c "cd /app && pytest $@"

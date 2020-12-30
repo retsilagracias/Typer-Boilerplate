@@ -1,3 +1,1 @@
-docker build . -t mycli
-clear
-docker run mycli $@
+docker run horoscopecli $@
